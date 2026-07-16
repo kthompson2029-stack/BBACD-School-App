@@ -1,1 +1,56 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+}
 
+.app {
+    max-width: 420px;
+    margin: auto;
+    min-height: 100vh;
+    background: white;
+}
+
+header {
+    background: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 0 0 25px 25px;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+header p {
+    margin-top: 8px;
+}
+
+main {
+    padding: 20px;
+}
+
+button {
+    width: 100%;
+    padding: 18px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+#content {
+    margin-top: 20px;
+    padding: 20px;
+    background: #e0e7ff;
+    border-radius: 15px;
+}
