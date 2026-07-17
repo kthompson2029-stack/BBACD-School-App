@@ -17,39 +17,11 @@
     <button>← Back Home</button>
 </a>
 
-<main>
-<div class="card">
-    <h2>📢 General Update</h2>
-    <small>July 2026</small>
-    <p>
-        Welcome to the Benjamin Banneker Academy app!
-        Check here for important school updates and announcements.
-    </p>
-</div>
+<main id="announcements">
 
-<div class="card">
-    <h2>🎓 College & Guidance</h2>
-    <small>July 2026</small>
-    <p>
-        Students should check regularly for scholarship opportunities,
-        college information, and guidance updates.
-    </p>
-</div>
-
-<div class="card">
-    <h2>🏫 School Information</h2>
-    <small>July 2026</small>
-    <p>
-        No new school information at this time.
-        More announcements will be posted soon.
-    </p>
-</div>
 
 </main>
 
-Your page will now look more like a real school communication app.
-
-After this, the next step will be making the Home page buttons actually connect everything together and improving the app design (ico
 
 
 
@@ -58,6 +30,25 @@ After this, the next step will be making the Home page buttons actually connect 
     <a href="announcements.html">📢 Announcements</a>
     <a href="calendar.html">📅 Calendar</a>
 </nav>
+<script>
+fetch("announcements.json")
+.then(response => response.json())
+.then(data => {
+
+    let box = document.getElementById("announcements");
+
+    data.forEach(item => {
+        box.innerHTML += `
+        <div class="card">
+            <h2>📢 ${item.title}</h2>
+            <small>${item.date}</small>
+            <p>${item.message}</p>
+        </div>
+        `;
+    });
+
+});
+</script>
 </body>
 
 </html>
