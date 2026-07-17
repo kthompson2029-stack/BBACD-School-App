@@ -53,16 +53,31 @@ function showPage(page) {
     `;
 
 }
-    else if (page === "events") {
+   else if (page === "events") {
 
-        content.innerHTML = `
-            <div class="card">
-                <h2>🎉 Events</h2>
-                <p>Upcoming school events will appear here.</p>
+    content.innerHTML = `
+        <div class="card">
+            <h2>🎉 Upcoming Events</h2>
+
+            <div class="event">
+                <h3>Club Fair</h3>
+                <p>Discover clubs and activities available at BBACD.</p>
             </div>
-        `;
 
-    }
+            <div class="event">
+                <h3>College & Career Day</h3>
+                <p>Learn about colleges, careers, and future opportunities.</p>
+            </div>
+
+            <div class="event">
+                <h3>School Spirit Week</h3>
+                <p>A week of activities, games, and school pride.</p>
+            </div>
+
+        </div>
+    `;
+
+}
 
     else if (page === "links") {
 
