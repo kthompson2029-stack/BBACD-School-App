@@ -23,17 +23,36 @@ function showPage(page) {
 
     } 
     
-    else if (page === "calendar") {
+   else if (page === "calendar") {
 
-        content.innerHTML = `
-            <div class="card">
-                <h2>📅 Calendar</h2>
-                <p>School dates and important events will appear here.</p>
+    content.innerHTML = `
+        <div class="card">
+            <h2>📅 School Calendar</h2>
+
+            <div class="event">
+                <h3>September 8</h3>
+                <p>First Day of School</p>
             </div>
-        `;
 
-    }
+            <div class="event">
+                <h3>September 15</h3>
+                <p>Club Fair</p>
+            </div>
 
+            <div class="event">
+                <h3>October 3</h3>
+                <p>Picture Day</p>
+            </div>
+
+            <div class="event">
+                <h3>November 27-28</h3>
+                <p>Thanksgiving Break</p>
+            </div>
+
+        </div>
+    `;
+
+}
     else if (page === "events") {
 
         content.innerHTML = `
