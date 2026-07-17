@@ -85,6 +85,25 @@ function refreshApp() {
         window.location.reload(true);
     }
 }
-</script>  
+</script>
+<script>
+fetch("announcements.json")
+.then(response => response.json())
+.then(data => {
+
+    let alertBox = document.getElementById("alert");
+
+    let important = data.find(item => item.priority === "important");
+
+    if (important) {
+        alertBox.innerHTML =
+        "🚨 " + important.title + ": " + important.message;
+    } else {
+        alertBox.innerHTML =
+        "📢 No important announcements at this time.";
+    }
+
+});
+</script>
 </body>
 </html>
