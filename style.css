@@ -188,3 +188,22 @@ nav a {
 main {
     padding-bottom: 80px;
 }
+.event {
+    background: #f2f5f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.event h3 {
+    margin-bottom: 5px;
+}
+
+.card {
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    padding: 20px;
+}
