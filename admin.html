@@ -38,7 +38,56 @@ Post Announcement
 
 </main>
 
+<script type="module">
 
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    addDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "bbacd-app.firebaseapp.com",
+    projectId: "bbacd-app",
+    storageBucket: "bbacd-app.firebasestorage.app",
+    messagingSenderId: "325899500299",
+    appId: "YOUR_APP_ID"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+window.postAnnouncement = async function() {
+
+    await addDoc(collection(db, "announcements"), {
+
+        title: document.getElementById("title").value,
+
+        date: document.getElementById("date").value,
+
+        category: document.getElementById("category").value,
+
+        message: document.getElementById("message").value,
+
+        priority: "normal",
+
+        new: true
+
+    });
+
+
+    alert("Announcement posted!");
+
+};
+
+</script>
 </body>
 
 </html>
