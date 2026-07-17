@@ -36,6 +36,8 @@
     <a href="calendar.html">📅 Calendar</a>
 </nav>
 <script>
+function loadAnnouncements() {
+
 fetch("announcements.json")
 .then(response => response.json())
 .then(data => {
@@ -78,6 +80,11 @@ fetch("announcements.json")
     });
 
 });
+
+}
+
+loadAnnouncements();
+
 </script>
 </body>
 </html>
