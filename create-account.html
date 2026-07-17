@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Create Account - BBACD</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<img src="logo-e1673281046458.png">
+<h1>Create Staff Account</h1>
+</header>
+
+
+<main>
+
+<div class="card">
+
+<h2>Register</h2>
+
+<input id="name" placeholder="Full Name">
+
+<input id="email" placeholder="Email">
+
+<input id="password" type="password" placeholder="Password">
+
+
+<button onclick="createAccount()">
+Create Account
+</button>
+
+<p id="message"></p>
+
+
+<a href="index.html">
+<button>← Back Home</button>
+</a>
+
+</div>
+
+</main>
+
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getAuth,
+createUserWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+
+import {
+getFirestore,
+doc,
+setDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+    apiKey: ""AIzaSyDje4ceeQsSiWs2iPj_gG75l7d0RAu5cn0"",
+    authDomain: "bbacd-app.firebaseapp.com",
+    projectId: "bbacd-app",
+    storageBucket: "bbacd-app.firebasestorage.app",
+    messagingSenderId: "325899500299",
+    appId: 1:325899500299:web:6ec770dbb2bc6db3f4400e"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+
+window.createAccount = async function(){
+
+let name = document.getElementById("name").value;
+
+let email = document.getElementById("email").value;
+
+let password = document.getElementById("password").value;
+
+
+try {
+
+
+let userCredential = await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+);
+
+
+let user = userCredential.user;
+
+
+await setDoc(doc(db,"users",user.uid),{
+
+    name: name,
+    email: email,
+    role: "staff"
+
+});
+
+
+document.getElementById("message").innerHTML =
+"Account created!";
+
+
+}
+
+catch(error){
+
+document.getElementById("message").innerHTML =
+error.message;
+
+}
+
+
+}
+
+
+</script>
+
+</body>
+
+</html>
