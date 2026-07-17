@@ -46,6 +46,11 @@ getAuth,
 signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
+import {
+getFirestore,
+doc,
+getDoc
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyDje4ceeQsSiWs2iPj_gG75l7d0RAu5cn0",
@@ -60,6 +65,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 
 window.login = function(){
@@ -71,9 +77,25 @@ let password = document.getElementById("password").value;
 
 signInWithEmailAndPassword(auth,email,password)
 
-.then(() => {
+.then(async (userCredential) => {
 
-window.location.href="admin.html";
+let user = userCredential.user;
+
+let adminRef = doc(db, "admins", user.email);
+
+let adminSnap = await getDoc(adminRef);
+
+
+if (adminSnap.exists()) {
+
+    window.location.href = "admin.html";
+
+} else {
+
+    document.getElementById("error").innerHTML =
+    "You do not have admin access.";
+
+}
 
 })
 
