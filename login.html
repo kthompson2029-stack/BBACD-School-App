@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>BBA Admin Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+<img src="logo-e1673281046458.png">
+<h1>Admin Login</h1>
+</header>
+
+
+<main>
+
+<div class="card">
+
+<h2>Teacher Login</h2>
+
+<input id="email" placeholder="Email">
+
+<input id="password" type="password" placeholder="Password">
+
+
+<button onclick="login()">
+Login
+</button>
+
+<p id="error"></p>
+
+</div>
+
+</main>
+
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDje4ceeQsSiWs2iPj_gG75l7d0RAu5cn0",
+    authDomain: "bbacd-app.firebaseapp.com",
+    projectId: "bbacd-app",
+    storageBucket: "bbacd-app.firebasestorage.app",
+    messagingSenderId: "325899500299",
+    appId: "1:325899500299:web:6ec770dbb2bc6db3f4400e"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+window.login = function(){
+
+let email = document.getElementById("email").value;
+
+let password = document.getElementById("password").value;
+
+
+signInWithEmailAndPassword(auth,email,password)
+
+.then(() => {
+
+window.location.href="admin.html";
+
+})
+
+.catch(() => {
+
+document.getElementById("error").innerHTML =
+"Login failed. Check your email and password.";
+
+});
+
+}
+
+</script>
+
+
+</body>
+</html>
