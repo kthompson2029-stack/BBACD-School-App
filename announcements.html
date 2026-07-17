@@ -86,5 +86,62 @@ fetch("announcements.json")
 loadAnnouncements();
 
 </script>
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+
+import { 
+    getFirestore,
+    collection,
+    getDocs
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "bbacd-app.firebaseapp.com",
+    projectId: "bbacd-app",
+    storageBucket: "bbacd-app.firebasestorage.app",
+    messagingSenderId: "325899500299",
+    appId: "YOUR_APP_ID"
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+const box = document.getElementById("announcements");
+
+
+const querySnapshot = await getDocs(collection(db, "announcements"));
+
+
+querySnapshot.forEach((doc) => {
+
+    let item = doc.data();
+
+    box.innerHTML += `
+    <div class="card">
+
+        <h2>
+            ${item.category}
+            ${item.new ? "🆕" : ""}
+        </h2>
+
+        <h3>${item.title}</h3>
+
+        <small>${item.date}</small>
+
+        <p>${item.message}</p>
+
+    </div>
+    `;
+
+});
+
+
+</script>
 </body>
 </html>
