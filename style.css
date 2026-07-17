@@ -169,3 +169,22 @@ header span {
     margin-top: 10px;
     font-size: 14px;
 }
+nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #003366;
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding-bottom: 80px;
+}
