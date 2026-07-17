@@ -83,3 +83,47 @@ h1, h2 {
   max-width: 500px;
   margin: auto;
 }
+/* App buttons */
+button {
+    width: 90%;
+    max-width: 400px;
+    display: block;
+    margin: 15px auto;
+    padding: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    background: #1e3a8a;
+    color: white;
+    cursor: pointer;
+}
+
+/* Button press effect */
+button:active {
+    transform: scale(0.97);
+}
+
+/* Welcome card */
+.welcome-card {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 15px;
+    max-width: 450px;
+    text-align: center;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 28px;
+}
+
+header p {
+    font-size: 18px;
+}
