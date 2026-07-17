@@ -33,6 +33,9 @@
 <button onclick="postAnnouncement()">
 Post Announcement
 </button>
+<button onclick="logout()">
+Logout
+</button>
 
 </div>
 
@@ -49,8 +52,18 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 import {
     getAuth,
-    onAuthStateChanged
+    onAuthStateChanged,
+    signOut
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
+    window.logout = function() {
+
+    signOut(auth).then(() => {
+
+        window.location.href = "login.html";
+
+    });
+
+};
 
 const firebaseConfig = {
     apiKey: "AIzaSyDje4ceeQsSiWs2iPj_gG75l7d0RAu5cn0",
