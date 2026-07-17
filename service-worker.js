@@ -1,9 +1,11 @@
-const CACHE_NAME = "bba-school-app-v1";
+const CACHE_NAME = "bba-school-app-v2";
 
 const filesToCache = [
-  "index.html",
-  "style.css",
-  "app.js"
+   "index.html",
+    "calendar.html",
+    "announcements.html",
+    "style.css",
+    "logo-e1673281046458.png"
 ];
 
 self.addEventListener("install", function(event) {
