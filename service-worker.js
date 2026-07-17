@@ -1,4 +1,4 @@
-const CACHE_NAME = "bba-school-app-v3";
+const CACHE_NAME = "bba-school-app-v4";
 
 const filesToCache = [
    "index.html",
