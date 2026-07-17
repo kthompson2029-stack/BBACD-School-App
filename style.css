@@ -134,7 +134,16 @@ header p {
     border-radius: 15px;
     max-width: 450px;
 }
+.event {
+    background: #f1f5f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
 
+.event h3 {
+    margin-bottom: 5px;
+}
 .announcement {
     background: #f1f5f9;
     padding: 15px;
