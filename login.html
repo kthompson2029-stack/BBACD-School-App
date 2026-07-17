@@ -29,6 +29,10 @@
 <button onclick="login()">
 Login
 </button>
+
+<button onclick="showCreateAccount()">
+Create Account
+</button>
 <a href="index.html">
     <button>← Back to Home</button>
 </a>
@@ -112,6 +116,11 @@ document.getElementById("error").innerHTML =
 });
 
 }
+  window.showCreateAccount = function(){
+
+    window.location.href = "create-account.html";
+
+};  
 
 </script>
 
