@@ -286,3 +286,12 @@ button:hover {
     font-size: 13px;
     margin-top: 15px;
 }
+.alert-banner {
+    background: #ffcc00;
+    color: black;
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+    border-radius: 10px;
+}
