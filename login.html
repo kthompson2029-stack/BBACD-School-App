@@ -90,12 +90,12 @@ signInWithEmailAndPassword(auth,email,password)
 
 let user = userCredential.user;
 
-let adminRef = doc(db, "admins", user.email);
+let userRef = doc(db, "users", user.uid);
 
-let adminSnap = await getDoc(adminRef);
+let userSnap = await getDoc(userRef);
 
 
-if (adminSnap.exists()) {
+if (userSnap.exists()  && userSnap.data().role === "admin") {
 
     window.location.href = "admin.html";
 
