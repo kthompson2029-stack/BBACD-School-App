@@ -17,8 +17,13 @@
     <button>← Back Home</button>
 </a>
 
-<main id="announcements">
+<input 
+    type="text" 
+    id="search" 
+    placeholder="🔍 Search announcements..."
+>
 
+<main id="announcements">
 
 </main>
 
@@ -36,19 +41,43 @@ fetch("announcements.json")
 .then(data => {
 
     let box = document.getElementById("announcements");
+    let search = document.getElementById("search");
 
-    data.forEach(item => {
-        box.innerHTML += `
-        <div class="card">
-            <h2>📢 ${item.title}</h2>
-            <small>${item.date}</small>
-            <p>${item.message}</p>
-        </div>
-        `;
+    function displayAnnouncements(items) {
+        box.innerHTML = "";
+
+        items.forEach(item => {
+            box.innerHTML += `
+            <div class="card">
+                <h2>
+                    ${item.category}
+                    ${item.new ? "🆕" : ""}
+                </h2>
+                <h3>${item.title}</h3>
+                <small>${item.date}</small>
+                <p>${item.message}</p>
+            </div>
+            `;
+        });
+    }
+
+    displayAnnouncements(data);
+
+    search.addEventListener("input", function() {
+
+        let text = search.value.toLowerCase();
+
+        let filtered = data.filter(item =>
+            item.title.toLowerCase().includes(text) ||
+            item.message.toLowerCase().includes(text) ||
+            item.category.toLowerCase().includes(text)
+        );
+
+        displayAnnouncements(filtered);
+
     });
 
 });
 </script>
-
 </body>
 </html>
