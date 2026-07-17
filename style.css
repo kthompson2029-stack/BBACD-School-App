@@ -150,3 +150,22 @@ header p {
     margin: 10px 0;
     border-radius: 10px;
 }
+.logo {
+    font-size: 50px;
+    text-align: center;
+}
+
+header h1 {
+    color: #1e3a8a;
+    margin-bottom: 5px;
+}
+
+header span {
+    display: inline-block;
+    background: #1e3a8a;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+}
